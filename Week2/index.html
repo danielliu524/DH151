@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daniel's Map</title>
+	<meta charset="utf-8" />
+
+	<!-- style sheets -->
+	<link rel="stylesheet" href="css/style.css">
+    
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+
+	<div class="header">
+		<h1>Places that are important to me</h1>
+	</div>
+	<div class="sidebar">
+		<h2>Why these places are important to me:</h2>
+		<ul>
+			<li>Hong Kong<br>The place I was born and grew up in.</li>
+			<li>Los Angeles<br>First time living away from family for a long time for college.</li>
+			<li>Washington D.C.<br>The first place I visited in the US that led me to apply for US colleges.</li>
+			<li>Tokyo<br>My favorite city other than HK. Travelled there 3 times. Also where my parents met each other.</li>
+			<li>Beijing<br>Where my grandparents used to live. Great memories of celebrating Chinese New Year here as a kid.</li>
+		</ul>
+	</div>
+	<div class="content">
+		<div id="map"></div>
+	</div>
+
+    <script>
+        var map = L.map('map').setView([0, 0], 2);
+		let data = [
+			{
+				"title": "Los Angeles",
+				"lat": 34.0522,
+				"lon": -118.2437,
+				"description": "First time living away from family for a long time for college."
+			},
+			{
+				"title": "Hong Kong",
+				"lat": 22.3193,
+				"lon": 114.1694,
+				"description": "The place I was born and grew up in."
+			},
+			{
+				"title": "Tokyo",
+				"lat": 35.6762,
+				"lon": 139.6503,
+				"description": "My favorite city other than HK. Travelled there 3 times. Also where my parents met each other."
+			},
+			{
+				"title": "Washington, D.C.",
+				"lat": 38.9072,
+				"lon": -77.0369,
+				"description": "The first place I visited in the US that led me to apply for US colleges."
+			},
+			{
+				"title": "Beijing",
+				"lat": 39.9042,
+				"lon": 116.4074,
+				"description": "Where my grandparents used to live. Great memories of celebrating Chinese New Year here as a kid."
+			},
+		]
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+		data.forEach(function(item) {
+			L.marker([item.lat, item.lon]).addTo(map)
+			.bindPopup("<h2>" + item.title + "</h2>" + item.description);
+		})
+    </script>
+
+</body>
+</html>
