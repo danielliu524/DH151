@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Silicon Valley Companies</title>
+	<meta charset="utf-8" />
+
+	<!-- style sheets -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- leaflet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/papaparse.min.js"></script>
+
+</head>
+<body>
+
+	<div class="header">
+		<div class="button" onclick="showHideSidebar()">Hide/Show Sidebar</div>
+		<h1>Silicon Valley Companies</h1>
+	</div>
+	<div class="sidebar">
+		<p>A map of notable companies in Silicon Valley. Click on their name to open their website!</p>
+	</div>
+	<div class="content">
+		<div id="map"></div>
+	</div>
+	<div class="footer">
+		Source: <a href="https://github.com/connor11528/tech-companies-and-startups/blob/master/silicon-valley-companies.csv">Employbl</a>
+	</div>
+
+	<script src="js/map.js"></script>
+
+</body>
+</html>
