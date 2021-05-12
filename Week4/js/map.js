@@ -70,6 +70,7 @@ function mapCSV(data){
 function panToImage(index){
 	// zoom to level 17 first
 	map.setZoom(17);
+    markers.getLayers()[index].openPopup();
 	// pan to the marker
 	map.panTo(markers.getLayers()[index]._latlng);
 }
